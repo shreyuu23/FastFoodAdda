@@ -1,0 +1,42 @@
+ <p id="notice"><%= notice %></p>
+
+<center><font color="black"><h1 class="sh">Items</h1></font></center>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <!-- <th>Description</th> -->
+      <th>Image</th>
+      <th>Price</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @items.each do |item| %>
+   
+      <tr>
+        <td><%= item.name %></td>
+     <!--    <td><%= item.description %></td> -->
+
+       <td><%if item.image.present?%><%= image_tag item.image.url, size: "200x200", :class=>"item" %><% end -%></td> 
+         
+        <td><%= item.price %></td>
+          <td><%= link_to 'Order', new_order_path(:id => item.id, restaurant_id: params[:id]),{:class=>"btn btn-danger" } %></td>
+
+           <% if current_user.role_id ==1 %>
+           <%# elsif current_user.role_id ==3 %>
+        <td><%= link_to 'Show', item %></td>
+        <td><%= link_to 'Edit', edit_item_path(item) %></td>
+        <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%= link_to 'New Item', new_item_path %>
+         <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+

@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+   
+<center><font color="black"><h1 class="pt">Restaurants</h1></font></center>
+
+<!-- <table>
+  <thead>
+    <tr>
+      <th>Name</th>
+    <th>Description</th> 
+       <th>Image</th>
+    
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody> --> 
+    
+    <% @restaurants.in_groups_of(3).each do |restaurants| %>
+    <div class = "row">
+      <% restaurants.each do |restaurant| %>
+    <%next if restaurant.blank?%>
+    <div class = "col-md-4">
+        <%#= restaurant.name %>
+        <%#= restaurant.description %>
+        <%if restaurant.image.url.present?%>
+       <%=link_to image_tag(restaurant.image.url,:class=>"restaurant"), restaurant_items_path(id:restaurant.id) %><br>
+        <% end -%>
+          <%= link_to restaurant_items_path(:id => restaurant.id),{:class=>"btn btn-primary" } do %>
+          <div class="category"><%= restaurant.name %></div>
+          <%end%>
+          <% if current_user.role_id ==1 %>
+       <td><%= link_to 'Show', restaurant %></td>
+        <td><%= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+
+         <td><%= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td> <%= link_to 'New Restaurant', new_restaurant_path %></td>
+         <% end %>
+      </div>
+      <% end %>
+      <br>
+
+<br>
+<% end %>
+

@@ -1,0 +1,2 @@
+<% cities = City.find(params[:cities]).areas.pluck(:name, :id) %>
+$('#restaurant_areas').html("<%= escape_javascript(options_for_select(cities)) %>");

@@ -1,0 +1,54 @@
+table,tr,td,th
+{
+	align-content: center;
+	text-align: center;
+	border-collapse: collapse;
+	border: 1px solid black;
+	padding: 5px;
+    
+
+}
+/*.table-info
+{
+	background-image: linear-gradient(to yellow);
+}*/
+
+
+.sss
+{
+	background-image: linear-gradient(to left, yellow,green);
+}
+.shrey
+{
+	background-image: linear-gradient(to left, yellow,green);
+}
+
+.shishanshu
+{
+	background-image: linear-gradient(to left, yellow,green);
+}
+.pt
+{
+	background-image: linear-gradient(to left, blue,violet,yellow);
+}
+
+.vivek
+{
+	align-content: center;
+	text-align: center;
+}
+
+.amruta
+{
+	background-image: linear-gradient(to left, red,yellow);
+}
+
+.s
+{
+	background-image: linear-gradient(to left, blue,yellow,green);
+}
+
+.sh
+{
+	background-image: linear-gradient(to left, yellow,green);
+}

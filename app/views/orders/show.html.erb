@@ -1,0 +1,90 @@
+<center><p id="notice"><%= notice %></p>
+<h1>your order is placed successfully, it will be delivered shortly</h1>
+
+
+<p>
+   <strong>Order_id:</strong>
+  <%= @order.id %>
+<p> 
+
+<p>
+   <strong>Status:</strong>
+  <%= @order.status %>
+<p> 
+
+<p>
+  <strong>Restaurant name:</strong>
+  <%= @order.item.restaurant.name %>
+</p>
+
+<p>
+  <strong>Item name:</strong>
+  <%= @order.item.name %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @order.name %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @order.address %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @order.email %>
+</p>
+
+<p>
+  <strong>Mobile:</strong>
+  <%= @order.mobile %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @order.quantity %>
+</p>
+
+<p>
+  <strong>Total price:</strong>
+  <%= @order.total_price %>
+</p>
+
+
+
+<!-- 
+  <strong>Item name:</strong>
+  <%= @order.item.name %>
+</p>
+</center> -->
+
+
+
+
+<%#= link_to 'Edit', edit_order_path(@order) %> 
+<%#= link_to 'Back', orders_path %>
+<td><%= link_to 'Cancel Order',   cancel_order_order_path,{:class=>"btn btn-danger" } %></td>
+
+
+
+
+<script>
+$(document).ready(function() {
+ setInterval(function() {
+          $.ajax({
+          type: 'GET',
+          url: '<%= url_for(:action => 'show_partial', :id => @order) %>',
+          data: {},
+          cache: false,
+          success: function(result) {
+               // $('#show_partial').html(result)
+          }
+      });
+
+
+  }, 2000);
+
+});
+</script>

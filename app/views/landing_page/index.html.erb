@@ -1,0 +1,64 @@
+
+<html>
+<header>
+   
+<h1><font color="red"><h1 class="shishanshu"><marquee>Food Online</marquee></h1></font></h1>
+<font size="5" color="blue">
+  <div class="form">
+  </header>
+
+</div>
+  
+<%= form_for :restaurant, :url => restaurants_path(), method: :get do |f| %>            
+       
+
+<label class="cities-label">Cities
+
+<% cities_arr = @cities.all.pluck("name","id")%>
+       <%= select_tag(
+          'cities',
+          options_for_select(
+           @cities.all.pluck("name","id")
+          ),
+          data: {
+            remote: true,
+            url: 'landing_page/filter_areas',
+            method: 'get'
+          }
+        ) %>
+      </label>
+    
+    <label class="areas-label">Areas
+<%areas_arr = @areas.all.pluck("name","id")%>
+       <%= f.select("areas", areas_arr)%>
+    </label>
+    <div class="search">
+       <%= f.submit "search" , :class=> "btn  btn-lg btn-danger"%>
+     </div>
+     </font>
+<% end %>
+<style >
+
+
+
+  label.cities-label{
+    margin-right: 10px;
+   top: 210px;
+
+  }
+
+  .areas-label{
+    position: absolute;
+    left: 250px;
+    top: 240px;
+  
+  margin-right: 10px;
+  }
+  .search{
+    position: absolute;
+    top:280px;
+    left: 500px;
+
+  }
+</style>
+</html>

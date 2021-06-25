@@ -1,0 +1,83 @@
+
+<%if current_user.role_id == 1%><h1><font color="black"><h1 class="shrey">Food Online</h1></font></h1>
+
+
+	  <td><%= link_to 'New City', new_city_path,{:class=>"btn btn-danger" } %></td>
+	  <td><%= link_to 'New Area', new_area_path,{:class=>"btn btn-danger" } %></td>
+	<td><%= link_to 'New Restaurant', new_restaurant_path,{:class=>"btn btn-danger" } %></td>
+	<%#= link_to 'New Item', new_item_path,{:class=>"btn btn-danger" } %>
+
+
+	<td><%= link_to 'Restaurants', restaurants_path,{:class=>"btn btn-danger" } %></td>
+
+	<td><%= link_to 'Items', items_path,{:class=>"btn btn-danger" } %></td>
+
+	<!-- <td><%#= link_to 'items', restaurant_items_path,{:class=>"btn btn-primary" } %></td> -->
+		<td><%= link_to 'Orders', orders_path,{:class=>"btn btn-danger" } %></td>
+
+  
+
+
+
+  <div align="center">
+<h1>Dashboard</h1>
+<div class="container-fluid">
+
+          <!-- Page Heading -->
+          <div class="d-sm-flex align-items-center justify-content-between mb-4">
+            <h1 class="h3 mb-0 text-gray-800" align="center"></h1>
+          </div>
+
+        <div class="row">
+
+
+           <i class="fa fa-appointment" aria-hidden="true" style="font-size:36px"></i>
+            <div class="">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-secondary text-uppercase mb-1" align="center">Total Orders</div>
+                      <div class="h3 mb-0 font-weight-bold text-gray-800" align="center"><h3 class="text-warning"><%= @orders %></h3></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- <i class="fa fa-list-alt" aria-hidden="true" style="font-size:36px"></i>
+            <div class="circle">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-secondary  text-uppercase mb-1" align="center">Total Items</div>
+                      <div class="h3 mb-0 font-weight-bold text-gray-800" align="center"><h3 class="text-warning"><%= @items %></h3></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div> -->
+         <i class="fa fa-list-alt" aria-hidden="true" style="font-size:36px"></i>
+            <div class="circle">
+              <div class="card border-left-primary shadow h-100 py-2">
+                <div class="card-body">
+                  <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                      <div class="text-xs font-weight-bold text-secondary  text-uppercase mb-1" align="center">Total Restaurants </div>
+                      <div class="h3 mb-0 font-weight-bold text-gray-800" align="center"><h3 class="text-warning"><%= @restaurants %></h3></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </div>
+</div>
+
+
+
+
+<%else%>
+	<h1>Sorry you are not admin</h1>
+<%end%>

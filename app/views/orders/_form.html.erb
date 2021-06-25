@@ -1,0 +1,71 @@
+<%= form_with(model: order, local: true, item: @item, :html=>{:id=>"form_id"}) do |form| %>
+  <% if order.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+
+      <ul>
+ 
+        <% order.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+
+<!--   <div class="field">
+    <strong><label>Restaurant-name:-> <%#= @order.restaurant.name %></label></strong>
+  </div> -->
+     
+    <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: "name" , required: true%>
+  </div>
+
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_area :address, id: "address" , required: true%>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email, id: "email" , required: true%>
+  </div>
+
+  <div class="field">
+    <%= form.label :mobile %>
+    <%= form.text_field :mobile, id:"mobile", required: true %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity,id: "quantity", onchange:"testMethod(this)" , required: true, min: 1%>
+  </div>
+
+  <div class="field">
+    <strong><label> Price : <%= @item.price %></label><b id ="unitprice"></b></strong>
+  </div>
+
+  <div class="field">
+     <strong><label> Total_Price :<b id ="totalprice"></b>
+        </strong></label>
+  </div>
+
+    <%= form.hidden_field :item_id,  value: @item.id%>
+    <%= form.hidden_field :up,  value: @item.price%>
+    <%= form.hidden_field :restaurant_id,  value: params[:restaurant_id] %> 
+
+  <div class="actions">
+
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<script type="text/javascript">
+  function testMethod(element){
+    var item_quantity = element.value;
+    var unit_price = "<%= @item.price %>"
+    $("#totalprice").html(parseInt(item_quantity)*parseInt(unit_price));
+  }
+</script>

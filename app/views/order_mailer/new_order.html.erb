@@ -1,0 +1,12 @@
+
+<p><%= @name %>, Your Food Order from <h1 style="color: green"><%= @order.item.restaurant.name%></h1> was successully placed, Here are the details</p>
+<table class="table table-hover">
+	<tr><td class="thead thead-dark">Name:</td> <td><%= @order.name %></td></tr>
+    <tr><td class="thead thead-dark">Address: </td> <td><%= @order.address %></td></tr>
+    <tr><td class="thead thead-dark">Mobile: </td> <td><%= @order.mobile %></td></tr>
+    <tr><td class="thead thead-dark">Email: </td> <td><%= @order.email %></td></tr>
+    <tr><td class="thead thead-dark">Item:</td> <td><%= @order.item.name%></td></tr>
+    <tr><td class="thead thead-dark">Quantity: </td> <td><%= @order.quantity%></td></tr>
+    <tr><td class="thead thead-dark">Total Price</td> <td><%= @order.total_price %></td></tr>
+    
+   </table>
